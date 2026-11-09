@@ -25,4 +25,13 @@ public sealed record SchemaNamesTests
     {
         Assert.Equal("pureql_node_param", SchemaNames.NodeParam);
     }
+
+    [Fact]
+    public void ListsEveryIndexOnce()
+    {
+        Assert.Equal(
+            ["pureql_node_query_id", "pureql_node_field_source", "pureql_node_param"],
+            SchemaNames.Indexes
+        );
+    }
 }

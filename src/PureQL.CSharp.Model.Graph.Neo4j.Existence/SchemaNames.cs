@@ -26,4 +26,8 @@ public static class SchemaNames
 
     /// <summary>The index on the <c>param</c> property of <c>Node</c> nodes.</summary>
     public const string NodeParam = "pureql_node_param";
+
+    /// <summary>The names of the three indexes, without the constraint.</summary>
+    internal static IReadOnlyList<string> Indexes { get; } =
+    [NodeQueryId, NodeFieldSource, NodeParam];
 }

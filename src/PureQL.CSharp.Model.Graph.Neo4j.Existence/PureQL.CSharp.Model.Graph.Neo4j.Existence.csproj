@@ -26,6 +26,9 @@
     />
   </ItemGroup>
   <ItemGroup>
+    <InternalsVisibleTo Include="PureQL.CSharp.Model.Graph.Neo4j.Existence.Tests" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="../../README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 </Project>
