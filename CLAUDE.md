@@ -20,7 +20,7 @@ CI additionally passes `-p:AssemblyVersion` (pinned to the major) and `-p:FileVe
 
 ## Architecture
 
-This is the **Neo4j existence package** of the `PureQL.CSharp.Model.Graph` family. It depends on `PureQL.CSharp.Model.Graph` `0.1.0-preview.1.0.0`, `PureQL.CSharp.Model.Graph.Neo4j.Abstractions` `0.1.0-preview.1.0.0` and `Neo4j.Driver` `6.5.1`. Namespace `PureQL.CSharp.Model.Graph.Neo4j.Existence`, one public type per file:
+This is the **Neo4j existence package** of the `PureQL.CSharp.Model.Graph` family. It depends on `PureQL.CSharp.Model.Graph` `0.1.0-preview.1.1.0`, `PureQL.CSharp.Model.Graph.Neo4j.Abstractions` `0.1.0-preview.1.0.0` and `Neo4j.Driver` `6.5.1`. Namespace `PureQL.CSharp.Model.Graph.Neo4j.Existence`, one public type per file:
 
 - `SchemaNames` — the names of the uniqueness constraint (`QueryId`, `pureql_query_id`) and the three indexes (`NodeQueryId`, `NodeFieldSource`, `NodeParam`: `pureql_node_query_id`, `pureql_node_field_source`, `pureql_node_param`), plus the internal list `Indexes`. `PureQL.CSharp.Model.Graph.Neo4j.Creation` creates them under these names; this package must not reference Creation (no operation package may be referenced), so they are duplicated and must stay equal to Creation's.
 - `SchemaExistence(IAsyncQueryRunner Runner)` — `ValueAsync` runs `SHOW CONSTRAINTS YIELD name RETURN name` and, if the constraint is listed, `SHOW INDEXES YIELD name RETURN name`; `true` when all four names are present. Names only: kind and properties are not checked.
