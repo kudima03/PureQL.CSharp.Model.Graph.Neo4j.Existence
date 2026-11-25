@@ -110,6 +110,23 @@ public sealed class Neo4jFixture : IAsyncLifetime
         _ = await cursor.ConsumeAsync();
     }
 
+    /// <summary>Writes the graphs in one transaction.</summary>
+    public async Task InsertAsync(IEnumerable<QueryGraph> graphs)
+    {
+        await using IAsyncSession session = Session();
+        await session.ExecuteWriteAsync(async transaction =>
+        {
+            foreach (QueryGraph graph in graphs)
+            {
+                IResultCursor cursor = await transaction.RunAsync(
+                    Insertion,
+                    Parameters(graph)
+                );
+                _ = await cursor.ConsumeAsync();
+            }
+        });
+    }
+
     private async Task<List<string>> NamesAsync(string statement)
     {
         await using IAsyncSession session = Session();
