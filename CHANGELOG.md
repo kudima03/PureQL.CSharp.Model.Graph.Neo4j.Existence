@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- The tests use `PureQL.CSharp.Model.Samples` `0.1.0-preview.4.1.0` and store
+  every one of its 386 samples side by side: each is found by its own id and
+  an id stored by none of them is not. The package is unchanged.
+
 ## [0.1.0-preview.1.0.0] - 2026-11-25
 
 ### Changed
